@@ -18,10 +18,8 @@
  *
  */
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
-//
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+require("dotenv").config();
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 module.exports = {
   /**
@@ -62,8 +60,8 @@ module.exports = {
     rinkeby: {
       provider: () =>
         new HDWalletProvider(
-          process.env.METAMASK_MNEMONIC,
-          process.env.RINKBY_NETWORK_URL
+          `${process.env.METAMASK_MNEMONIC}`,
+          `${process.env.RINKBY_NETWORK_URL}`
         ),
       network_id: 4, // Ropsten's id
       gas: 5500000,
